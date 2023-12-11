@@ -6,8 +6,8 @@ from core.logging_utils import configure_logging
 configure_logging()
 
 class MqttClientWrapper:
-    def __init__(self, client_id=None, server=None, port=1883, username=None, password=None):
-        self.client_id = client_id or f"mqtt-client-{os.environ.get('DEVICE_ID', 'default')}"
+    def __init__(self, client_id_suffix=None, server=None, port=1883, username=None, password=None):
+        self.client_id = f"mqtt-client-{os.environ.get('DEVICE_ID', 'default')}-{client_id_suffix}" if client_id_suffix else f"mqtt-client-{os.environ.get('DEVICE_ID', 'default')}"
         self.server = server or os.environ.get('MQTT_SERVER')
         self.port = port
         self.username = username or os.environ.get('MQTT_USERNAME')
