@@ -19,6 +19,7 @@ class GpioHandler:
         self.LOW = self.GPIO.LOW
         self.IN = self.GPIO.IN
         self.OUT = self.GPIO.OUT
+        self.BOTH = self.GPIO.BOTH
 
     def setup(self, pin, mode):
         self.GPIO.setup(pin, mode)
